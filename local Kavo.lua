@@ -1,4 +1,4 @@
-local Kavo = {}
+local RatchataX = {}
 
 local tween = game:GetService("TweenService")
 local tweeninfo = TweenInfo.new
@@ -7,7 +7,7 @@ local run = game:GetService("RunService")
 
 local Utility = {}
 local Objects = {}
-function Kavo:DraggingEnabled(frame, parent)
+function RatchataX:DraggingEnabled(frame, parent)
         
     parent = parent or frame
     
@@ -124,7 +124,7 @@ local themeStyles = {
         Background = Color3.fromRGB(0, 0, 0),
         Header = Color3.fromRGB(0, 0, 0),
         TextColor = Color3.fromRGB(255,255,255),
-        ElementColor = Color3.fromRGB(0, 255, 0)
+        ElementColor = Color3.fromRGB(0, 0, 0)
     }
 }
 local oldTheme = ""
@@ -146,7 +146,7 @@ end)
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
-function Kavo:ToggleUI()
+function RatchataX:ToggleUI()
     if game.CoreGui[LibName].Enabled then
         game.CoreGui[LibName].Enabled = false
     else
@@ -154,7 +154,7 @@ function Kavo:ToggleUI()
     end
 end
 
-function Kavo.CreateLib(kavName, themeList)
+function RatchataX.CreateLib(kavName, themeList)
     if not themeList then
         themeList = themes
     end
@@ -195,7 +195,7 @@ function Kavo.CreateLib(kavName, themeList)
     themeList = themeList or {}
     local selectedTab 
     kavName = kavName or "Library"
-    table.insert(Kavo, kavName)
+    table.insert(RatchataX, kavName)
     for i,v in pairs(game.CoreGui:GetChildren()) do
         if v:IsA("ScreenGui") and v.Name == kavName then
             v:Destroy()
@@ -220,7 +220,7 @@ function Kavo.CreateLib(kavName, themeList)
 
     local blurFrame = Instance.new("Frame")
 
-    Kavo:DraggingEnabled(MainHeader, Main)
+    RatchataX:DraggingEnabled(MainHeader, Main)
 
     blurFrame.Name = "blurFrame"
     blurFrame.Parent = pages
@@ -361,7 +361,7 @@ function Kavo.CreateLib(kavName, themeList)
         end
     end)()
 
-    function Kavo:ChangeColor(prope,color)
+    function RatchataX:ChangeColor(prope,color)
         if prope == "Background" then
             themeList.Background = color
         elseif prope == "SchemeColor" then
@@ -2651,4 +2651,4 @@ function Kavo.CreateLib(kavName, themeList)
     end  
     return Tabs
 end
-return Kavo
+return RatchataX
